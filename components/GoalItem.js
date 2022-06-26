@@ -1,4 +1,4 @@
-import { StyleSheet, Text, View, Button, TextInput, ScrollView, FlatList, Pressable } from 'react-native';
+import { StyleSheet, Text, View, Pressable } from 'react-native';
 
 function GoalItem(props){
     return(

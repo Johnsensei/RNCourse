@@ -1,4 +1,4 @@
-import { StyleSheet, Text, View, Button, TextInput, ScrollView, FlatList, Image } from 'react-native';
+import { StyleSheet, View, Button, FlatList, Image } from 'react-native';
 import { useState } from 'react';
 import { 
   Thasadith_400Regular,
@@ -89,11 +89,7 @@ export default function App() {
       </View>
     ); //End of return
   }
-
-  
-
 }
-
 
 const styles = StyleSheet.create({
   appContainer: {
@@ -104,19 +100,8 @@ const styles = StyleSheet.create({
   goalsContainer: {
     flex: 5,
   },
-  listItem: {
-    margin: 8,
-    borderRadius: 6,
-    padding: 8,
-    backgroundColor: '#D5D5D5',
-  },
-  itemText: {
-    fontFamily: 'Thasadith_700Bold',
-    color: '#DEA228',
-  },
   bannerImage: {
     width: '90%',
-    // height: 100,
     margin: 20,
     resizeMode: 'contain',
     alignSelf: 'center'

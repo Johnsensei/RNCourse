@@ -1,9 +1,7 @@
-import { StyleSheet, Text, View, Button, TextInput, ScrollView, FlatList, Modal, Image } from 'react-native';
-import {useState} from 'react';
+import { StyleSheet, View, Button, TextInput, Modal, Image } from 'react-native';
 
 
 function GoalInput(props){
-
 
     return(
       <Modal
