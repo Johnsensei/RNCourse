@@ -1,16 +1,15 @@
-import { StyleSheet, Text, View, Button, TextInput, ScrollView, FlatList } from 'react-native';
+import { StyleSheet, Text, View, Button, TextInput, ScrollView, FlatList, Modal } from 'react-native';
 import {useState} from 'react';
 
 
 function GoalInput(props){
 
-    // const [enteredGoalText, setEnteredGoal] = useState('');
-
-    // function goalInputHandler(enteredText) {
-    //     setEnteredGoal(enteredText);
-    //   };
 
     return(
+      <Modal
+        visible={props.modalVisible}
+        animationType='slide'
+      >
         <View style={styles.inputContainer}>
           <TextInput
             style={styles.textInput}
@@ -18,11 +17,23 @@ function GoalInput(props){
             onChangeText={props.goalInputHandler}
             value={props.enteredGoalText}
           />
-          <Button
-            title='Add Goal'
-            onPress={props.addGoalHandler}
-          />
+          <View style={styles.buttonsRow}>
+            <View style={styles.buttonSingle}>
+              <Button
+                title='Add Goal'
+                onPress={props.addGoalHandler}
+              />
+            </View>
+            <View style={styles.buttonSingle}>
+              <Button
+                title='Cancel'
+                color='#E61145'
+                onPress={props.hideModal}
+              />
+            </View>
+          </View>
         </View>
+      </Modal>
     );
 };
 
@@ -31,8 +42,8 @@ export default GoalInput;
 const styles = StyleSheet.create({
     inputContainer: {
       flex: 1,
-      flexDirection: 'row',
-      justifyContent: 'space-between',
+      flexDirection: 'column',
+      justifyContent: 'center',
       alignItems: 'center',
       marginBottom: 24,
       borderBottomWidth: 1,
@@ -41,9 +52,17 @@ const styles = StyleSheet.create({
     textInput: {
       borderWidth: 1,
       borderColor: '#CCCCCC',
-      width: '70%',
-      marginRight: 8,
+      width: '80%',
       padding: 8,
     },
+    buttonsRow: {
+      flexDirection: 'row',
+      justifyContent: 'space-evenly',
+
+    },
+    buttonSingle: {
+      margin: 10,
+      width: '30%',
+    }
     
   });

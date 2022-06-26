@@ -19,6 +19,7 @@ export default function App() {
     Thasadith_400Regular,
     Thasadith_700Bold
   });
+  const [modalVisible, setModalVisible] = useState(false);
 
   function goalInputHandler(enteredText) {
     setEnteredGoal(enteredText);
@@ -28,6 +29,7 @@ export default function App() {
     setGoals(currentGoals =>
       [...currentGoals, {text: enteredGoalText, id: Math.random().toString()}]);
       setEnteredGoal('');
+      setModalVisible(false);
   };
 
   function deleteGoalHandler(id){
@@ -36,16 +38,34 @@ export default function App() {
     });
   };
 
+  function showModal () {
+    setModalVisible(true);
+  }
+
+  function hideModal () {
+    setModalVisible(false);
+  }
+
   if (!fontsLoaded){
     return <AppLoading />
   } else {
     return (
       <View style={styles.appContainer}>
-        <GoalInput
+        <Button
+          title='Add New Goal'
+          color='#FA9663'
+          onPress={showModal}
+          
+        />
+
+          <GoalInput
           goalInputHandler={goalInputHandler}
           addGoalHandler={addGoalHandler}
           enteredGoalText={enteredGoalText}
+          modalVisible={modalVisible}
+          hideModal={hideModal}
         />
+
         <View style={styles.goalsContainer}>
           <FlatList
             alwaysBounceVertical={false}
@@ -73,7 +93,7 @@ export default function App() {
 const styles = StyleSheet.create({
   appContainer: {
     flex: 1,
-    paddingTop: 50,
+    paddingTop: 100,
     paddingHorizontal: 16,
   },
   inputContainer: {
