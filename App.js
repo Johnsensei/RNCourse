@@ -1,4 +1,4 @@
-import { StyleSheet, Text, View, Button, TextInput, ScrollView, FlatList } from 'react-native';
+import { StyleSheet, Text, View, Button, TextInput, ScrollView, FlatList, Image } from 'react-native';
 import { useState } from 'react';
 import { 
   Thasadith_400Regular,
@@ -51,8 +51,13 @@ export default function App() {
   } else {
     return (
       <View style={styles.appContainer}>
+        <Image
+            style={styles.bannerImage}
+            source={require('./img/banner.png')}
+          />
+        
         <Button
-          title='Add New Goal'
+          title='Add New Festival Goal'
           color='#FA9663'
           onPress={showModal}
           
@@ -108,6 +113,13 @@ const styles = StyleSheet.create({
   itemText: {
     fontFamily: 'Thasadith_700Bold',
     color: '#DEA228',
+  },
+  bannerImage: {
+    width: '90%',
+    // height: 100,
+    margin: 20,
+    resizeMode: 'contain',
+    alignSelf: 'center'
   }
   
 });
